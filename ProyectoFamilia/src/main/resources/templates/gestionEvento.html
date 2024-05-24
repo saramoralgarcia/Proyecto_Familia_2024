@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+
+    <body style="background-color: #f4c624">
+        <div th:replace="./Basic/navbar.html"></div>
+
+        <div class="container my-2">
+            <h1 class="text-center" style="font-family: superBubble">Lista de Eventos</h1>
+            <a th:href = "@{/altaEvento}">
+                <img src="añadirTarea.png" alt="Añadir Evento" class="img-button p-2" style="height: 80px" title="Añadir Evento">
+            </a>
+
+            <table class="table table-striped table-responsive-md">
+                <thead>
+                    <tr>
+                        <th> Nombre </th>
+                        <th> Fecha del Evento</th>
+                        <th> Descripción </th>
+                        <th> Miembro Implicado </th>
+                        <th> Eliminar </th>
+                        <th> Modificar </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="evento : ${listaEventos}">
+                        <td th:text="${evento.Nombre}"></td>
+                        <td th:text="${#dates.format(evento.Fecha, 'dd-MM-yyyy')}"></td>
+                        <td th:text="${evento.Descripcion}"></td>
+                        <td
+                            th:text="${evento.miembro != null ? evento.miembro.nombre : 'Sin Asignar'}">
+                        </td>
+
+                        <td> 
+                            <a th:href="@{/eliminarEvento/{id_evento}(id_evento=${evento.id})}" role="button">
+                                <img src="eliminar.png" alt="eliminar Evento" class="img-button p-2" style="height: 50px" title="Eliminar Evento">
+                            </a>
+                        </td>
+                        <td>
+                            <a th:href="@{/modificarEvento/{id_evento}(id_evento=${evento.id.toString()})}" role="button">
+                                <img src="modificar.png" alt="modificar tarea" class="img-button p-2" style="height: 50px" title="Modificar Evento">
+                            </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br><br><br><br>
+         <div th:replace="./Basic/footer.html"></div>
+    </body>
+</html>

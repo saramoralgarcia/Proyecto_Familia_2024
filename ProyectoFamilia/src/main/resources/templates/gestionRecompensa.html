@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>TODO supply a title</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    </head>
+
+    <body style="background-color: #f4c624">
+
+        <div th:replace="./Basic/navbar.html"></div>
+
+        <div class="container my-2">
+
+            <h1 class="text-center" style="font-family: superBubble">Lista de Recompensas</h1>
+            <a th:href = "@{/altaRecompensa}" >
+                <img src="añadirRecompensa.png" alt="Añadir recompensa" class="img-button p-2" style="height: 80px" title="Añadir Recompensa" >
+            </a>
+            <table class="table table-striped table-responsive-md">
+                <thead>
+                    <tr>
+                        <th> Nombre </th>
+                        <th> Descripción </th>
+                        <th> Puntos </th>
+                        <th> Eliminar </th>
+                        <th> Modificar </th>
+                        <th> Canjear </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr th:each="recompensa : ${listaRecompensa}">
+                        <td th:text="${recompensa.Nombre}"></td>
+                        <td th:text="${recompensa.Descripcion}"></td>
+                        <td th:text="${recompensa.Puntos}"></td>
+
+                        <td> 
+                            <a th:href="@{/eliminarRecompensa/{id_recompensa}(id_recompensa=${recompensa.id})}"  class="" role="button">
+                                <img src="eliminar.png" alt="eliminar recompensa" class="img-button p-2" style="height: 50px" title="Eliminar Recompensa">
+                            </a>
+                        </td>
+                        <td> 
+                            <a th:href="@{/modificarRecompensa/{id_recompensa}(id_recompensa=${recompensa.id.toString})}" class="" role="button">
+                                <img src="modificar.png" alt="modificar recompensa" class="img-button p-2" style="height: 50px" title="Modificar Recompensa">
+                            </a>
+                        </td>
+                        <td th:if="${recompensa.Puntos <= puntos}"> 
+                              <a th:href="@{/canjearRecompensa/{id_recompensa}(id_recompensa=${recompensa.id})}" role="button">
+                                  <img src="diana1.png" alt="canjear recompensa" class="img-button p-2" style="height: 50px" title="Canjear Recompensa">
+                              </a>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <br><br><br><br>
+        <div th:replace="./Basic/footer.html"></div>
+    </body>
+</html>
+
