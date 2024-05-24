@@ -14,27 +14,26 @@
         <div class="fondo"></div>
             <!-- <h1 class="text-center h">Iniciar Sesión</h1> -->
        
-            <div id="total-login" class=" ">
+            <div id="total-login">
                 <img src="dutys250.png" alt="alt"/>
             </div>
                 <div id="" class="flogin">
                 <div id="form">
                     <form action="#" th:action="@{/AccesoMiembro}" method="POST">
                         <div class="col-12 pt-2">
-                            <label class="form-label pl-2">Introduce el Email</label>
+                            <label class="form-label pl-2">Email</label>
                             <input type="email" class="form-control" th:name="email">
-                            <div th:if="${passIncorrecta}" class="alert alert-danger mt-3" role="alert">
-                            Contraseña incorrecta, por favor inténtalo de nuevo.
-                            </div>
+                        <!-- <div th:if="${passIncorrecta}" class="alert alert-danger mt-3" role="alert">Contraseña incorrecta, por favor inténtalo de nuevo.</div> -->
+
                         </div>
                         
                         
                         <fieldset  class="form-group col-12 pt-2" th:classappend="${passIncorrecta} ? 'has-error' : ''">
-                            <label class="form-label pl-2">Introduce la contraseña</label>
+                            <label class="form-label pl-2">Contraseña</label>
                             <input type="password" class="form-control" th:name="contraseña">
-                            <div th:if="${passIncorrecta}" class="text-danger m-2">
-                                Contraseña incorrecta, por favor inténtalo de nuevo.
-                            </div>
+                            <!-- <div th:if="${passIncorrecta}" class="text-danger m-2">Contraseña incorrecta, por favor inténtalo de nuevo.</div> -->
+                        <div th:if="${passIncorrecta}" class="alert alert-danger mt-3 text-left" style=" color: #af1b1b;" role="alert">La combinación de usuario y contraseña no se corresponden con ninguna cuenta en Dutys.com.</div>
+
                         </fieldset>
                         <div class="col-12 text-center">
                             <button type="submit" class="btn btn-dark m-3">Iniciar Sesion</button>
