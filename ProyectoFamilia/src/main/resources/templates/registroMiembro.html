@@ -10,8 +10,71 @@
         <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
 
-    <body style="background-color: #f4c624">
-        <div class="m-5">
+    <body class="login">
+        <div class="fondo"></div>
+        <div id="total-login">
+            <img style="width: 200px" src="dutys250.png" alt="alt"/>
+        </div>
+        <div class="">
+            <img class="rounded mx-auto d-block"  src="./amigos.png" alt="alt"/>
+        </div>
+        <div class="container">
+            <div class=" flogin-alta-con-familia" style="max-height: 545px"> 
+                <h5 class="text-center " style="font-size: 40px"> Bienvenido a la Familia <span th:text="${nombre}"></span></h5>
+            <h6 class="text-center pt-4 " style="letter-spacing: 1px"><strong>Introduce los datos del nuevo Miembro</strong></h6>
+
+            <!-- <div class="row"> -->
+
+                    <form class="row g-3" action="#" th:action="@{/guardarMiembro}" th:object="${miembro}" method="POST" onsubmit="return validarFormulario()">
+                        <input type="hidden" th:name="idFamilia" th:value="${idFamilia}" />
+                        <div class="col-12 pt-2">
+                            <label class="form-label pl-2">Nombre</label>
+                            <input id="nombre" type="text" class="form-control" th:field="*{Nombre}">
+                        </div>
+                        <div class="col-12 pt-2">
+                            <label class="form-label pl-2">Email</label>
+                            <input id="email" type="email" class="form-control" th:field="*{Email}" placeholder="example@gmail.com">
+                        </div>
+                        <div class="col-12 pt-2">
+                            <label class="form-label pl-2">Contraseña</label>
+                            <input id="pass" type="password" class="form-control" th:field="*{Contraseña}">
+                        </div>
+                        <div class="col-12 pt-2">
+                            <label class="form-label pl-2">¿Quién eres?</label>
+                            <select id="select" class="form-control" th:field="*{Rol}">
+                                <option value="Padre">Padre</option>
+                                <option value="Madre">Madre</option>
+                                <option value="Hijo">Hijo</option>
+                            </select>
+                        </div>
+                        <div class="col-12 pt-4 text-center">
+                            <button type="submit" class="btn btn-dark">Registrarse</button>
+                            <a th:href="@{/opcionRegistro}" class="btn btn-link atras">atrás</a>
+                        </div>
+                    </form>
+            </div>
+            
+            <!-- </div> -->
+        </div>
+        <script>
+            function validarFormulario() {
+                var nombre = document.getElementById("nombre").value;
+                var email = document.getElementById("email").value;
+                var pass = document.getElementById("pass").value;
+                var select = document.getElementById("select").value;
+             
+                // Añadir aquí más validaciones según tus campos
+    
+                if (nombre === "" || email === "" || pass === "" || select === "") {
+                    
+                    alert("Todos los campos deben de estar rellenos");
+                    return false;
+                }
+    
+                return true;
+            }
+        </script>
+        <!-- <div class="m-5">
             <img src="./amigos.png" alt="familia" width="10%">
 
             <h1 class="text-center h" style="font-size: 50px">Bienvenido a la Familia <span th:text="${param.familia}"></span></h1>
@@ -50,6 +113,6 @@
             </div>
         </div>
         <br><br><br><br>
-        <div th:replace="./Basic/footer.html"></div>
+        <div th:replace="./Basic/footer.html"></div> -->
     </body>
 </html>
