@@ -42,24 +42,24 @@
         <div class="container">
             <div class="row ">
                 <div class="col-lg-6 col-12 mx-auto flogin-alta-con-familia">
-                    <form class="row g-3" action="#" th:action="@{/guardarMiembroConUsuario}" th:object="${miembro}" method="POST">
+                    <form class="row g-3" action="#" th:action="@{/guardarMiembroConUsuario}" th:object="${miembro}" method="POST" onsubmit="return validarFormulario()">
                         <input type="hidden" th:name="idFamilia" th:value="${idFamilia}" />
 
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Nombre</label>
-                            <input type="text" class="form-control" th:field="*{Nombre}">
+                            <input id="nombre" type="text" class="form-control" th:field="*{Nombre}">
                         </div>
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Email</label>
-                            <input type="text" class="form-control" th:field="*{Email}" placeholder="example@gmail.com">
+                            <input id="email" type="text" class="form-control" th:field="*{Email}" placeholder="example@gmail.com">
                         </div>
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Contraseña</label>
-                            <input type="password" class="form-control" th:field="*{Contraseña}">
+                            <input id="pass" type="password" class="form-control" th:field="*{Contraseña}">
                         </div>
                                                 <div class="col-12 pt-2">
                             <label class="form-label pl-2">¿Quién eres?</label>
-                            <select class="form-control" th:field="*{Rol}">
+                            <select id="select" class="form-control" th:field="*{Rol}">
                                 <option value="Padre">Padre</option>
                                 <option value="Madre">Madre</option>
                                 <option value="Hijo">Hijo</option>
@@ -74,6 +74,22 @@
                 </div>
             </div>
         </div>
+        <script>
+            function validarFormulario() {
+                var nombre = document.getElementById("nombre").value;
+                var email = document.getElementById("email").value;
+                var pass = document.getElementById("pass").value;
+                var select = document.getElementById("select").value;
+                 
+                if (nombre === "" || email === "" || pass === "" || select === "") {
+                    
+                    alert("Todos los campos deben de estar rellenos");
+                    return false;
+                }
+    
+                return true;
+            }
+        </script>
         <br><br><br><br>
     </body>
 </html>

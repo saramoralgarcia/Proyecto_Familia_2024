@@ -44,7 +44,7 @@
                         <td th:text="${tarea.miembro != null ? tarea.miembro.nombre : 'Sin Asignar'}"></td> <!--si la tarea es nula mostrara una cadena vacia si esta llena mostrará el nombre del miembro.-->
 
                         <td> 
-                            <a th:href="@{/eliminarTarea/{id_tarea}(id_tarea=${tarea.id})}" role="button"> 
+                            <a th:href="@{/eliminarTarea/{id_tarea}(id_tarea=${tarea.id})}" role="button" onclick="return confirmarEliminacion(event)"> 
                                 <img src="eliminar.png" alt="eliminar tarea" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;" title="Eliminar Tarea">
                             </a>
                         </td>
@@ -63,6 +63,13 @@
                 </tbody>
             </table>
         </div>
+        <script>
+            function confirmarEliminacion(event) {
+               if (!confirm("¿Estás seguro de que deseas eliminar esta tarea?")) {
+                   event.preventDefault();
+               }
+           }
+       </script>
     </body>
 <br><br><br><br>
 </html>

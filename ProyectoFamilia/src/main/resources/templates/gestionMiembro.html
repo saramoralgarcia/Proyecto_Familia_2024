@@ -45,21 +45,27 @@
                     <td th:text="${miembro.Rol}"></td>
                     <td th:text="${miembro.Puntos}"></td>
 
-                    <td> <a th:href="@{/eliminarMiembro/{id}(id=${miembro.id})}" class="" role="button">
-                            <img src="eliminar.png" alt="Añadir Miembros" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;"
-                                title="eliminar Miembro">
+                    <td> 
+                        <a th:href="@{/eliminarMiembro/{id}(id=${miembro.id})}" class="" role="button" onclick="return confirmarEliminacion(event)">
+                            <img src="eliminar.png" alt="Añadir Miembros" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;" title="eliminar Miembro">
                         </a>
                     </td>
                     <td>
                         <a th:href="@{/modificarMiembro/{id}(id=${miembro.id.toString()})}" class="" role="button">
-                            <img src="modificar.png" alt="Añadir Miembros" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;"
-                                title="modificar Miembro">
+                            <img src="modificar.png" alt="Añadir Miembros" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;" title="modificar Miembro">
                         </a>
                     </td>
                 </tr>
             </tbody>
         </table>
     </div>
+    <script>
+         function confirmarEliminacion(event) {
+            if (!confirm("¿Estás seguro de que deseas eliminar este miembro?")) {
+                event.preventDefault();
+            }
+        }
+    </script>
     <script src="https://kit.fontawesome.com/yourcode.js" crossorigin="anonymous"></script>
     <br><br><br><br>
 </body>

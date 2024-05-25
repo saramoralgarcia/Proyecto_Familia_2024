@@ -38,7 +38,7 @@
                         <td th:text="${recompensa.Puntos}"></td>
 
                         <td> 
-                            <a th:href="@{/eliminarRecompensa/{id_recompensa}(id_recompensa=${recompensa.id})}"  class="" role="button">
+                            <a th:href="@{/eliminarRecompensa/{id_recompensa}(id_recompensa=${recompensa.id})}"  class="" role="button" onclick="return confirmarEliminacion(event)">
                                 <img src="eliminar.png" alt="eliminar recompensa" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;" title="Eliminar Recompensa">
                             </a>
                         </td>
@@ -56,6 +56,13 @@
                 </tbody>
             </table>
         </div>
+        <script>
+            function confirmarEliminacion(event) {
+               if (!confirm("¿Estás seguro de que deseas eliminar esta recompensa?")) {
+                   event.preventDefault();
+               }
+           }
+       </script>
         <br><br><br><br>
     </body>
 </html>
