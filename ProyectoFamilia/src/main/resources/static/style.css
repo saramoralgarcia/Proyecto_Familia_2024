@@ -32,6 +32,10 @@
   background: url('./salon2.jpg')no-repeat center center fixed ;
   background-size: cover;
 }
+.fondo3 {
+  background: url('./habitacion.jpg')no-repeat center center fixed ;
+  background-size: cover;
+}
 /* fondoinicial{
     background-color: #f4c624; 
     background-size: 100%;
