@@ -23,20 +23,20 @@
             <!-- <img src="./amigos.png" alt="familia" width="25%" /> -->
         </div>
         <div class="container flogin-alta-con-familia ">
-            <h1 class="text-center h" style="font-size: 40px"> Tu familia te espera...</h1>
+            <h5 class="text-center " style="font-size: 40px"> Tu familia te espera...</h5>
             <div class="row">
                 <div class="col-lg-6 col-12 mx-auto">
                     <form class="row g-3" action="#" th:action="@{/guardarMiembroConFamilia}" method="POST" onsubmit="return validarFormulario()">
                         <div class="col-12 pt-2">
                             <label for="codigo" class="form-label pl-2">Introduce el código de tu familia</label>
                             <input name="codigo" id="codigo" type="text" class="form-control" th:name="codigo" />
+                            <div th:if="${mensajeError}" class="alert alert-danger mt-3 text-left" style=" color: #af1b1b;" role="alert">
+                                Código Incorrecto, ¿Está seguro que tiene familia?.
+                            </div>
                         </div>
-                        <div th:if="${mensajeError}" class="alert alert-danger ml-3 my-2" role="alert">
-                            Código Incorrecto, ¿Está seguro que tiene familia?.
-                        </div>
-                        
                         <div class="col-12 pt-4  text-center">
-                            <button type="submit" class="btn btn-dark">Validar</button>
+                            <button type="submit" class="btn btn-dark">Comprobar...</button>
+                            <a th:href="@{/opcionRegistro}" class="btn btn-link atras">atrás</a>
                         </div>
                     </form>
                    

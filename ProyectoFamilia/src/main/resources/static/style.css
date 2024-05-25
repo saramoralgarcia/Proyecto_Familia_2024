@@ -130,8 +130,13 @@ img-button {
     max-width: 600px;
     backdrop-filter: blur(4px);
     box-shadow: 3px 3px 8px 0px #00000052;
-    background: #ffffff47;
+    background: #ffffff96;
     max-height: 470px;
+}
+.atras{
+  display: flex;
+  justify-content: flex-end;
+  font-size: 12px;
 }
 .shadow{
     background: rgba(249, 215, 4, 0.28);
