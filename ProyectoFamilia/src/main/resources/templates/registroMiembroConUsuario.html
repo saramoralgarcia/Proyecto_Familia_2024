@@ -36,7 +36,7 @@
         <div class="container">
             <div class="" style="max-height: 545px"> 
 
-            <h1 class="text-center h" style="font-size: 50px">Bienvenido a la Familia <span th:text="${param.familia}"></span></h1>
+            <h1 class="text-center h tracking-in-contract-bck" style="font-size: 50px">Bienvenido a la Familia <span th:text="${param.familia}"></span></h1>
             <h2 class="text-center letter p-4 bg-light " style="letter-spacing: 1px; border-radius: 16px;"><i class="fa-solid fa-star"></i> Introduce los datos del nuevo miembro <i class="fa-solid fa-star"></i></h2>
         </div>
         <div class="container">
@@ -57,7 +57,7 @@
                             <label class="form-label pl-2">Contraseña</label>
                             <input id="pass" type="password" class="form-control" th:field="*{Contraseña}">
                         </div>
-                                                <div class="col-12 pt-2">
+                        <div class="col-12 pt-2">
                             <label class="form-label pl-2">¿Quién eres?</label>
                             <select id="select" class="form-control" th:field="*{Rol}">
                                 <option value="Padre">Padre</option>
@@ -91,5 +91,6 @@
             }
         </script>
         <br><br><br><br>
+        <div th:replace="./Basic/footer.html"></div>
     </body>
 </html>
