@@ -35,14 +35,14 @@
         <div class="container">
             <div class="row ">
                 <div class="col-lg-6 col-12 mx-auto flogin-alta-con-familia">
-                    <form class="row g-3" action="#" th:action="@{/guardarEvento}" th:object="${evento}" method="POST">                            
+                    <form class="row g-3" action="#" th:action="@{/guardarEvento}" th:object="${evento}" method="POST" onsubmit="return validarFormulario()">                            
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Nombre</label>
-                            <input type="text" class="form-control" th:field="*{Nombre}">
+                            <input id="nombre" type="text" class="form-control" th:field="*{Nombre}">
                         </div>
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Fecha</label>
-                            <input type="date" class="form-control" th:field="*{Fecha}">
+                            <input id="fecha" type="date" class="form-control" th:field="*{Fecha}">
                         </div>
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Descripcion</label>
@@ -66,5 +66,20 @@
         </div>
         <br><br><br><br>
         <div th:replace="./Basic/footer.html"></div>
+        <script>
+            function validarFormulario() {
+                var nombre = document.getElementById("nombre").value;
+                var fecha = document.getElementById("fecha").value;
+                 
+                if (nombre === "" || fecha === "" ) {
+                    
+                    alert("Los campos nombre y fecha deben de estar rellenos");
+                    return false;
+                }
+    
+                return true;
+            }
+        </script>
+
     </body>
 </html>
