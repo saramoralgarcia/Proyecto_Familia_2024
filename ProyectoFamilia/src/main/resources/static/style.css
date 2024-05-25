@@ -11,8 +11,9 @@
 
 .fondo1 {
     background: url('./salon.jpg')no-repeat center center fixed ;
-    background-size: 100%;
-    object-fit: cover;
+    background-size: cover;
+
+
 }
 fondoinicial{
     background-color: #f4c624; 
@@ -27,6 +28,14 @@ fondoinicial{
     top: 0;
     left: 0;
     z-index: -1;
+}
+.fondo1 {
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 /*
 .navbar{ 
@@ -109,7 +118,16 @@ img-button {
     margin: 10px 10px;
     vertical-align: middle;
 }
-
+.flogin-general{
+  margin: 0 auto;
+    padding: 33px;
+    width: 390px;
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    box-shadow: 3px 3px 8px 0px #00000052;
+    background: #ffffff96;
+    margin-top: -155px;
+}
 .flogin{
     margin: 0 auto;
     padding: 33px;
@@ -133,6 +151,17 @@ img-button {
     background: #ffffff96;
     max-height: 470px;
 }
+.flogin-tarjetas{
+  margin: 0 auto;
+  padding: 33px;
+  font-size: 16px;
+  border-radius: 16px;
+  max-width: 250px;
+  backdrop-filter: blur(4px);
+  box-shadow: 3px 3px 8px 0px #00000052;
+  background: #ffffff96;
+  max-height: 375px;
+}
 .atras{
   display: flex;
   justify-content: flex-end;
@@ -152,6 +181,7 @@ img-button {
 
 body.login, body.start {
     flex-direction: column;
+    
 }
 
 form {
@@ -242,6 +272,7 @@ form {
 body{
     background-color: #FAF8F1;
     font-family: sans-serif !important;
+    overflow-x: hidden;
 }
 .nav-item{
     text-transform: uppercase;

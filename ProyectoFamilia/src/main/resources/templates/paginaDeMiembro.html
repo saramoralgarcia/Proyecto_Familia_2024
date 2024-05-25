@@ -11,45 +11,48 @@
 
 <body>
         <div class="fondo1"></div>
-        <div id="total-login" class=" ">
-                <img src="dutys250.png" alt="alt"/>
+        <div class="content">
+            <img class="ml-5" style="width: 200px" src="dutys250.png" alt="alt"/>
+            <h1 class="text-center letter flogin-general"> Bienvenido <span th:text="${nombreMiembro}"></span></h1><br><br><br><br>
         </div>
         <!-- Incluya la barra de navegación aquí -->
-        <div th:replace="./Basic/CabeceraSinNavbar.html"></div><br><br>
-        <h1 class="text-center letter"> Bienvenido <span th:text="${familia}"></span></h1><br><br><br><br>
+        <!-- <div th:replace="./Basic/CabeceraSinNavbar.html"></div><br><br> -->
+        
         <div class="">
-            <div class="">
                 <div class="row gy-5 text-center">
-                    <div class="col-lg-3 col-md-6 col-sm-12" style="width: 18rem">
+                    <div class="col-lg-3 col-md-6 col-sm-12 flogin-tarjetas" style="width: 18rem">
                         <div class="container" >
                             <a class="navbar-brand " href="gestionMiembro">
-                                <img class="card-img-top card-img-fluid" src="./amigos.png" alt="Card image cap" style="height: 100%; max-height: 250px;" title="Gestion de Miembros">
-                                <h3 class="text-dark text-center pr-4 my-4 bg-light letter" style="border-radius: 20px" >Miembros</h3>
+                                <img class="card-img-top card-img-fluid" src="./amigos.png" alt="Card image cap" title="Gestion de Miembros">
+                                <div class="text-center">
+                                    <h3 class="text-dark text-center pr-4 my-4 letter" style="border-radius: 20px" >Miembros</h3>
+
+                                </div>
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12" style="width: 18rem">
+                    <div class="col-lg-3 col-md-6 col-sm-12 flogin-tarjetas" style="width: 18rem">
                         <div class="container" >
                             <a class="navbar-brand " href="./gestionEvento">
-                                <img class="card-img-top card-img-fluid" src="./evento2.png" alt="Card image cap" style="height: 100%; max-height: 250px;" title="Gestion de Eventos">
-                                <h3 class="text-dark text-center pr-4 my-4 bg-light letter" style="border-radius: 20px" >Eventos</h3>
+                                <img class="card-img-top card-img-fluid m-3" src="./evento2.png" alt="Card image cap" style="height: 100%; max-height: 200px;" title="Gestion de Eventos">
+                                <h3 class="text-dark text-center pr-4 my-4 letter" style="border-radius: 20px" >Eventos</h3>
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12" >
+                    <div class="col-lg-3 col-md-6 col-sm-12 flogin-tarjetas">
                         <div class="container" >
                             <a class="navbar-brand " href="./gestionTarea">
                                 <img class="card-img-top card-img-fluid" src="./tarea2.png" alt="Card image cap" style="height: 100%; max-height: 250px;" title="Gestion de Tareas">
-                                <h3 class="text-dark text-center pr-4 my-4 bg-light letter" style="border-radius: 20px" >Tareas</h3>
+                                <h3 class="text-dark text-center pr-4 my-4 letter" style="border-radius: 20px" >Tareas</h3>
                             </a>
                         </div>
                     </div>
-                    <div class="col-lg-3 col-md-6 col-sm-12">
-                        <div class="container" style="width: 18rem">
+                    <div class="col-lg-3 col-md-6 col-sm-12 flogin-tarjetas" style="padding: 15px;">
+                        <div class="container">
                             <a class="navbar-brand " href="gestionRecompensa">
                                 <img class="card-img-top card-img-fluid" src="./recompensa.png" alt="Card image cap" style="height: 100%; max-height: 250px;" title="Gestion de Recompensas">    
                             </a>
-                            <h3 class="text-dark text-center pr-4 my-4 bg-light letter" style="border-radius: 20px" >Recompensas</h3>
+                            <h3 class="text-dark text-center my-4 letter" style="border-radius: 20px; font-size: 24px;" >Recompensas</h3>
                         </div>
                     </div>
                 </div>
