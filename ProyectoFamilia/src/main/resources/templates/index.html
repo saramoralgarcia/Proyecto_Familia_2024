@@ -1,63 +1,47 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
-    <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet"
-              href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
-              integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO"
-              crossorigin="anonymous">
-        <link rel="stylesheet" href="./style.css">
-    </head>
-    <body class="login">
-        <div class="fondo"></div>
-            <!-- <h1 class="text-center h">Iniciar Sesión</h1> -->
-       
-            <div id="total-login">
-                <img src="dutys250.png" alt="alt"/>
-            </div>
-                <div id="" class="flogin">
-                <div id="form">
-                    <form action="#" th:action="@{/AccesoMiembro}" method="POST">
-                        <div class="col-12 pt-2">
-                            <label class="form-label pl-2">Email</label>
-                            <input type="email" class="form-control" th:name="email">
-                        <!-- <div th:if="${passIncorrecta}" class="alert alert-danger mt-3" role="alert">Contraseña incorrecta, por favor inténtalo de nuevo.</div> -->
 
-                        </div>
-                        
-                        
-                        <fieldset  class="form-group col-12 pt-2" th:classappend="${passIncorrecta} ? 'has-error' : ''">
-                            <label class="form-label pl-2">Contraseña</label>
-                            <input type="password" class="form-control" th:name="contraseña">
-                            <!-- <div th:if="${passIncorrecta}" class="text-danger m-2">Contraseña incorrecta, por favor inténtalo de nuevo.</div> -->
-                        <div th:if="${passIncorrecta}" class="alert alert-danger mt-3 text-left" style=" color: #af1b1b;" role="alert">La combinación de usuario y contraseña no se corresponden con ninguna cuenta en Dutys.com.</div>
+<head>
+    <title>TODO supply a title</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
+        integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <link rel="stylesheet" href="./style.css">
+</head>
 
-                        </fieldset>
-                        <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-dark mr-2">Iniciar Sesion</button>
-                            <a th:href="@{/opcionRegistro}" class="btn btn-dark">Registrarte</a>
+<body class="login">
+    <div class="fondo"></div>
+    <!-- <h1 class="text-center h">Iniciar Sesión</h1> -->
 
-                        </div>
-                    </form>
-            </div>
-        </div> 
-    </body>
-    <!-- <body class="login">
-        <div class="fondo"></div>
-        <div id="total-login" class=" ">
-                <img src="dutys250.png" alt="alt"/>
+    <div id="total-login">
+        <img src="dutys250.png" alt="alt" />
+    </div>
+    <div id="" class="flogin">
+        <div id="form">
+            <form action="#" th:action="@{/AccesoMiembro}" method="POST">
+                <div class="col-12 pt-2">
+                    <label class="form-label pl-2">Email</label>
+                    <input type="email" class="form-control" th:name="email">
+                    <!-- <div th:if="${passIncorrecta}" class="alert alert-danger mt-3" role="alert">Contraseña incorrecta, por favor inténtalo de nuevo.</div> -->
+
+                </div>
+
+
+                <fieldset class="form-group col-12 pt-2" th:classappend="${passIncorrecta} ? 'has-error' : ''">
+                    <label class="form-label pl-2">Contraseña</label>
+                    <input type="password" class="form-control" th:name="contraseña">
+                    <!-- <div th:if="${passIncorrecta}" class="text-danger m-2">Contraseña incorrecta, por favor inténtalo de nuevo.</div> -->
+                    <div th:if="${passIncorrecta}" class="alert alert-danger mt-3 text-left" style=" color: #af1b1b;"
+                        role="alert">La combinación de usuario y contraseña no se corresponden con ninguna cuenta en
+                        Dutys.com.</div>
+                </fieldset>
+                <div class="col-12 text-center">
+                    <button type="submit" class="btn btn-dark mr-2">Iniciar Sesion</button>
+                    <a th:href="@{/opcionRegistro}" class="btn btn-dark">Registrarte</a>
+                </div>
+            </form>
         </div>
-        <div id="" class="p-0 flogin">
-        <div id="form"></div>
-        <div class="container my-5">
-            <div class=" text-center p-3 m-2">
-            <a th:href="@{/opcionRegistro}" class="btn btn-dark">Registrarte</a>
-            <a th:href="@{/iniciarSesion}"  class="bnt m-2" >
-            <button type="submit" class="btn btn-dark">Iniciar Sesion</button>
-        </a>
-        </div>
-        </div>
-    </body> -->
+    </div>
+</body>
 </html>

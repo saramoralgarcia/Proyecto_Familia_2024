@@ -1,11 +1,7 @@
 package ProyectoFamilia.Controller;
 
-import ProyectoFamilia.Model.Familia;
-import ProyectoFamilia.Model.Miembro;
-import ProyectoFamilia.Service.ServiceFamilia;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +9,12 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import ProyectoFamilia.Model.Familia;
+import ProyectoFamilia.Model.Miembro;
+import ProyectoFamilia.Service.ServiceFamilia;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class FamiliaController 

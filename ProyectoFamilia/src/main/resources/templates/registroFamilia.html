@@ -10,8 +10,53 @@
         <link rel="stylesheet" type="text/css" href="./style.css">
     </head>
 
-    <body style="background-color: #f4c624">
-        <div class="m-5">
+    <body class="login">
+        <div class="fondo"></div>
+        <div id="total-login">
+            <img style="width: 200px" src="dutys250.png" alt="alt"/>
+        </div>
+        <div class="">
+            <img class="rounded mx-auto d-block"  src="./amigos.png" alt="alt"/>
+        </div>
+        <div class="container flogin-alta-con-familia ">
+            <h5 class="text-center " style="font-size: 40px"> Rellene los datos de su familia</h5>
+            <div class="row">
+                <div class="col-lg-6 col-12 mx-auto">
+                    <form class="row g-3" action="#" th:action="@{/guardarFamilia}" th:object="${familia}" method="POST" onsubmit="return validarFormulario()">
+
+                        <div class="col-12 pt-2">
+                            <label for="NombreFamilia" class="form-label pl-2">Nombre Familia</label>
+                            <input type="text"  id="nombre" class="form-control" th:name="nombre" th:field="*{Nombre}" placeholder="Los Sopranos" />
+                        </div>
+                        <div class="col-12 pt-2">
+                            <label class="form-label pl-2">Describe un poco a su familia</label>
+                            <textarea type="text" class="form-control" th:field="*{Descripcion}" placeholder="Mi familia es..."> </textarea>
+                        </div>
+                        <div class="col-12 pt-4 text-center">
+                            <button type="submit" class="btn btn-dark">Siguiente</button>
+                            <a th:href="@{/opcionRegistro}" class="btn btn-link atras">atrás</a>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            function validarFormulario() {
+                var nombre = document.getElementById("nombre").value;
+             
+                // Añadir aquí más validaciones según tus campos
+    
+                if (nombre === "") {
+                    
+                    alert("El campo nombre no puede estar vacio");
+                    return false;
+                }
+    
+                return true;
+            }
+        </script>
+        
+        <!-- <div class="m-5">
             <img src="./amigos.png" alt="familia" width="10%">
 
             <h1 class="text-center h" style="font-size: 50px">Rellene los datos de tu familia</h1>
@@ -21,13 +66,13 @@
                 <div class="col-lg-6 col-12 mx-auto">
                     <form class="row g-3" action="#" th:action="@{/guardarFamilia}" th:object="${familia}" method="POST">
                         <div class="col-12 pt-2">
-                            <label class="form-label pl-2">Nombre Familia</label>
-                            <input type="text" class="form-control" th:field="*{Nombre}" placeholder="Los Sopranos">
-                        </div>
-                        <div class="col-12 pt-2">
-                            <label class="form-label pl-2">Describe un poco a tu familia</label>
-                            <input type="text" class="form-control" th:field="*{Descripcion}" placeholder="Mi familias es...">
-                        </div>
+                            --<label class="form-label pl-2">Nombre Familia</label>
+                            --<input type="text" class="form-control" th:field="*{Nombre}" placeholder="Los Sopranos">
+                        --</div>
+                        --<div class="col-12 pt-2">
+                           -- <label class="form-label pl-2">Describe un poco a tu familia</label>
+                            --<input type="text" class="form-control" th:field="*{Descripcion}" placeholder="Mi familias es...">
+                       -- </div>
                         <div class="col-12 pt-4">
                             <button type="submit" class="btn btn-dark">Siguiente</button>
                         </div>
@@ -36,6 +81,6 @@
             </div>
         </div>
         <br><br><br><br>
-        <div th:replace="./Basic/footer.html"></div>
-    </body>
+        <div th:replace="./Basic/footer.html"></div>-->
+    </body> 
 </html>
