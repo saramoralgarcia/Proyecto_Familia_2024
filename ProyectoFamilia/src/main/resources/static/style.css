@@ -197,6 +197,15 @@ img-button {
   background: #ffffff96;
   max-height: 375px;
 }
+.fila{
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.fila:hover{
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(235, 10, 10, 0.2);
+  background: #CA954C99;
+}
+
 .atras{
   display: flex;
   justify-content: flex-end;

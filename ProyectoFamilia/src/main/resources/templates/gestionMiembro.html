@@ -39,20 +39,20 @@
                 </tr>
             </thead>
             <tbody>
-                <tr th:each="miembro : ${listaMiembros}">
+                <tr th:each="miembro : ${listaMiembros}" >
                     <td th:text="${miembro.Nombre}"></td>
                     <td th:text="${miembro.Email}"></td>
                     <td th:text="${miembro.Rol}"></td>
                     <td th:text="${miembro.Puntos}"></td>
 
                     <td> <a th:href="@{/eliminarMiembro/{id}(id=${miembro.id})}" class="" role="button">
-                            <img src="eliminar.png" alt="Añadir Miembros" class="img-button p-2 bg bg-secondary" style="height: 50px; border-radius: 5px;"
+                            <img src="eliminar.png" alt="Añadir Miembros" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;"
                                 title="eliminar Miembro">
                         </a>
                     </td>
                     <td>
                         <a th:href="@{/modificarMiembro/{id}(id=${miembro.id.toString()})}" class="" role="button">
-                            <img src="modificar.png" alt="Añadir Miembros" class="img-button p-2 bg bg-secondary" style="height: 50px; border-radius: 5px;"
+                            <img src="modificar.png" alt="Añadir Miembros" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;"
                                 title="modificar Miembro">
                         </a>
                     </td>
