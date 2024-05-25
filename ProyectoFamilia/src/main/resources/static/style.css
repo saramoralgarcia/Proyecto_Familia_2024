@@ -36,6 +36,10 @@
   background: url('./habitacion.jpg')no-repeat center center fixed ;
   background-size: cover;
 }
+.fondo4 {
+  background: url('./hab-codigo.jpg')no-repeat center center fixed ;
+  background-size: cover;
+}
 /* fondoinicial{
     background-color: #f4c624; 
     background-size: 100%;
