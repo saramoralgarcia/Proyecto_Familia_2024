@@ -16,6 +16,13 @@
             <h1 class="text-center letter flogin-general"> Bienvenido <span th:text="${nombreMiembro}"></span></h1><br><br><br><br>
         </div>
         <!-- Incluya la barra de navegación aquí -->
+        <div class="container-fluid ">
+            <div class="d-flex justify-content-end p-2">
+                <a th:href = "@{/}" >
+                  <i class="fa-solid fa-circle-xmark" style="color: red;"></i>
+                </a>
+            </div>             
+        </div>
         <!-- <div th:replace="./Basic/CabeceraSinNavbar.html"></div><br><br> -->
         
         <div class="">
@@ -57,5 +64,5 @@
                     </div>
                 </div>
             </div>
-    </body>
+</body>
 </html>

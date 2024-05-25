@@ -27,14 +27,16 @@
 .fondo1 {
     background: url('./salon.jpg')no-repeat center center fixed ;
     background-size: cover;
-
-
 }
-fondoinicial{
+.fondo2 {
+  background: url('./salon2.jpg')no-repeat center center fixed ;
+  background-size: cover;
+}
+/* fondoinicial{
     background-color: #f4c624; 
     background-size: 100%;
     background-size: cover; 
-}
+} */
 
 .fondo {
     min-height: 100%;
@@ -45,6 +47,14 @@ fondoinicial{
     z-index: -1;
 }
 .fondo1 {
+  min-height: 100%;
+  width: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+}
+.fondox {
   min-height: 100%;
   width: 100%;
   position: fixed;
@@ -143,6 +153,16 @@ img-button {
     background: #ffffff96;
     margin-top: -155px;
 }
+.flogin-tabla{
+  margin: 34px 34px;
+    padding: 33px;
+    width: auto;
+    border-radius: 16px;
+    backdrop-filter: blur(4px);
+    box-shadow: 3px 3px 8px 0px #00000052;
+    background: #ffffffc9;
+    margin-top: 15px;
+}
 .flogin{
     margin: 0 auto;
     padding: 33px;
@@ -234,11 +254,14 @@ form {
    font-size: 70px
 }
 .navbar{
-    
     justify-content: center;
     letter-spacing: 5px;
-    background-color: transparent;
-    --bs-bg-opacity: #FAF8F1;
+    /* background-color: transparent; */
+    border-radius: 16px;
+    margin-left: 250px;
+    margin-right: 250px;
+  /* box-shadow: 3px 3px 8px 0px #00000052; */
+
 }
 body{
     background-color: #FAF8F1;
