@@ -1,4 +1,19 @@
 
+/* contenedor tarjetas */
+
+.card-container {
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.card-container:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 8px 16px rgba(235, 10, 10, 0.2);
+  background: #CA954C99;
+}
+
+
+/* fin contenedor tarjeta */
+
 @font-face {
   font-family: 'superBubble';
   src: url('./superBubble.ttf') format('truetype');
@@ -201,50 +216,6 @@ form {
     margin: 0px auto;
     max-height: 240px;
 }
-
-
-
-
-
-
-
-/**
- * ----------------------------------------
- * animation letras pagina login
- * ----------------------------------------
- */
-/*@-webkit-keyframes tracking-in-contract-bck {
-  0% {
-    letter-spacing: 1em;
-    -webkit-transform: translateZ(400px);
-            transform: translateZ(400px);
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-    opacity: 1;
-  }
-}
-@keyframes tracking-in-contract-bck {
-  0% {
-    letter-spacing: 1em;
-    -webkit-transform: translateZ(400px);
-            transform: translateZ(400px);
-    opacity: 0;
-  }
-  40% {
-    opacity: 0.6;
-  }
-  100% {
-    -webkit-transform: translateZ(0);
-            transform: translateZ(0);
-    opacity: 1;
-  }
-}*/
 
 
 @font-face {
