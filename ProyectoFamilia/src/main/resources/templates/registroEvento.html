@@ -2,22 +2,39 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 
     <head>
-        <title>TODO supply a title</title>
+        <title>Crear Evento</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
               integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
         <link rel="stylesheet" type="text/css" href="/style.css">
-    </head>
-    <body style="background-color: #f4c624">
-        <div class="m-5">
-            <img src="../amigos.png" alt="familia" width="10%">
+        <script src="https://kit.fontawesome.com/168ef55c2a.js" crossorigin="anonymous"></script>
 
-            <h1 class="text-center h" style="font-size: 50px">Creación de Evento</h1>
+    </head>
+    <body class="login">
+        <div class="fondo4 fondox"></div>
+        <div class="container-fluid ">
+            <div class="row justify-content-between">
+                <div class="col text-center"></div> 
+                <div class="p-2"> 
+                    <a th:href = "@{/}">
+                        <i class="fa-solid fa-circle-xmark" style="color: red;" title="Salir de la aplicación"></i>
+                    </a>
+                </div> 
+            </div>
+        </div>
+        <div id="total-login">
+            <img style="width: 200px" src="dutys250.png" alt="alt"/>
+        </div>
+        <div class="container">
+            <div style="max-height: 545px">
+                <h1 class="text-center h tracking-in-contract-bck" style="font-size: 50px">¿Tienes un Evento?</h1>
+                <h2 class="text-center letter p-4 bg-light " style="letter-spacing: 1px; border-radius: 16px;"><i class="fa-solid fa-calendar"></i> Introduce los datos del nuevo evento <i class="fa-solid fa-calendar"></i></h2>
+            </div>
         </div>
         <div class="container">
             <div class="row ">
-                <div class="col-lg-6 col-12 mx-auto">
+                <div class="col-lg-6 col-12 mx-auto flogin-alta-con-familia">
                     <form class="row g-3" action="#" th:action="@{/guardarEvento}" th:object="${evento}" method="POST">                            
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Nombre</label>
@@ -38,8 +55,10 @@
                                 <option th:each="miembro : ${listaMiembros}" th:value="${miembro.id}" th:text="${miembro.nombre}"></option>
                             </select>
                         </div>
-                        <div class="col-12 pt-4">
-                            <button type="submit" class="btn btn-dark">Guardar Tarea</button>
+                        <div class="col-12 pt-4" style="text-align: center;">
+                            <button type="submit" class="btn btn-dark">Guardar Evento</button>
+                            <a th:href="@{/gestionMiembro}" class="btn btn-link atras">atrás</a>
+
                         </div>
                     </form>
                 </div>
