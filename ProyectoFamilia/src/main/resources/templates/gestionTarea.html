@@ -19,7 +19,7 @@
         <div class="flogin-tabla">
             <h1 class="text-center" style="font-family: superBubble">Todas las Tareas <i class="fa-solid fa-star"></i></h1>
             <a th:href = "@{/altaTarea}" >
-                <img src="addtarea.png" alt="Añadir Tarea" class="img-button p-2 icon" style="height: 100px; margin-top: -70px;" title="añadir Tarea">
+                <img src="addtarea.png" alt="Añadir Tarea" class="img-button img-fluid p-2 icon" style="height: 100px; margin-top: -70px;" title="añadir Tarea">
                 </a>
                 
             <table class="table table-striped table-responsive-md">
@@ -53,9 +53,10 @@
                                 <img src="modificar.png" alt="modificar tarea" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;" title="Modificar Tarea">
                             </a>
                         </td>
-                        <td th:if ="${tarea.miembro != null}" >
+                        <td th:if ="${tarea.miembro != null && miembroLogeado.id == tarea.miembro.id}" >
                             <a th:href="@{/realizarTarea/{id_tarea}(id_tarea=${tarea.id})}" role="button">
                                 <img src="hacer.png" alt="hacer tarea" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;" title="Realizar Tarea">
+                                
                             </a>
                         </td>
                         

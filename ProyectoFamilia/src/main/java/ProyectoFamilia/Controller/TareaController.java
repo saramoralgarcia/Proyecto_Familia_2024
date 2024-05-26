@@ -1,13 +1,8 @@
 package ProyectoFamilia.Controller;
 
-import ProyectoFamilia.Model.Familia;
-import ProyectoFamilia.Model.Miembro;
-import ProyectoFamilia.Model.Tarea;
-import ProyectoFamilia.Service.ServiceFamilia;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import java.util.Date;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -16,6 +11,13 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import ProyectoFamilia.Model.Familia;
+import ProyectoFamilia.Model.Miembro;
+import ProyectoFamilia.Model.Tarea;
+import ProyectoFamilia.Service.ServiceFamilia;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class TareaController 
@@ -63,11 +65,14 @@ public class TareaController
     public String mostrarListaTareas(HttpSession session, Model model)
     {
         Familia familia = (Familia) session.getAttribute("familia");
+        Miembro miembroLogeado = (Miembro) session.getAttribute("miembro");
         if(familia != null)
         {
             List<Tarea> listaTareas = serviceFamilia.ListarTareas(familia.getId());
             model.addAttribute("familia", familia);
             model.addAttribute("listaTareas", listaTareas);
+            model.addAttribute("miembroLogeado", miembroLogeado);
+
             return "gestionTarea";
         }
         return "registroTarea";
@@ -88,7 +93,7 @@ public class TareaController
     }
     
     @GetMapping("/realizarTarea/{id_tarea}")
-    public String realizarTarea(@PathVariable("id_tarea") Long idTarea)
+    public String realizarTarea(@PathVariable("id_tarea") Long idTarea, HttpSession session, Model model)
     {
         //obtener la tarea a partir de id
         Tarea tarea = serviceFamilia.buscarTareaPorId(idTarea);
@@ -99,6 +104,15 @@ public class TareaController
         }
         //obtener el miembro asociado a la tarea
         Miembro miembro = tarea.getMiembro();
+        Miembro usuarioLogeado = (Miembro) session.getAttribute("miembro");
+        
+            // Verificar si el usuario logeado es el mismo que el miembro asignado a la tarea
+        if (usuarioLogeado == null || !usuarioLogeado.getId().equals(miembro.getId())) {
+            // Si el usuario logeado no es el asignado a la tarea, redirigir o mostrar error
+            model.addAttribute("error", "No tienes permiso para realizar esta tarea.");
+            return "gestionTarea"; // Aquí puedes redirigir a una página de error o mostrar un mensaje
+        }
+
         //sumar los puntos de la tarea al atributo "puntos" del miembro
         int puntosTarea = tarea.getPuntos();
         int puntosMiembro = miembro.getPuntos() + puntosTarea;
