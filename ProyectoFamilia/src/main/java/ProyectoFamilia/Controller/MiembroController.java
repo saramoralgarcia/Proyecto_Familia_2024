@@ -1,10 +1,5 @@
 package ProyectoFamilia.Controller;
 
-import ProyectoFamilia.Model.Familia;
-import ProyectoFamilia.Model.Miembro;
-import ProyectoFamilia.Service.ServiceFamilia;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -13,6 +8,12 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+
+import ProyectoFamilia.Model.Familia;
+import ProyectoFamilia.Model.Miembro;
+import ProyectoFamilia.Service.ServiceFamilia;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class MiembroController 
@@ -35,10 +36,17 @@ public class MiembroController
     public String guardarMiembro(@ModelAttribute("miembro") Miembro miembro, @ModelAttribute("idFamilia") Long idFamilia, HttpServletRequest request, Model model)// le pasamos el objeto, el id,el request y el modelo
     // http Request -->  mensaje que se envía desde el cliente al servidor para solicitar un recurso.
     {
+        Miembro existente = serviceFamilia.buscarMiembroPorEmail(miembro.getEmail());
+
+        if (existente != null) {
+            // Si el email ya existe, añadir un atributo al modelo y redirigir a la página de registro
+            model.addAttribute("emailExistente", true);
+            return "registroMiembro"; // Asegúrate de que esta es la página correcta para el registro
+        }
         Familia familia = serviceFamilia.buscarFamiliaPorId(idFamilia); // Buscar la familia por su "id".
         miembro.setFamilia(familia); // se almacena el objeto miembro dentro de esa familia. 
         System.out.println("Miembro recibido: " + miembro.toString());
-
+        
         serviceFamilia.guardarMiembro(miembro);
         HttpSession session = request.getSession();  //se obtiene el objeto miembro dentro de esta familia.
         session.setAttribute("miembro", miembro);// Agregamos el objeto miembro a la session Http(como si fuera una caja.

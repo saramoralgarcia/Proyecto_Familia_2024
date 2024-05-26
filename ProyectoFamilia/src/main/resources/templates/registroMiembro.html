@@ -19,7 +19,7 @@
             <img class="rounded mx-auto d-block"  src="./amigos.png" alt="alt"/>
         </div>
         <div class="container">
-            <div class=" flogin-alta-con-familia" style="max-height: 545px"> 
+            <div class=" flogin-alta-con-familia" style="max-height: 605px"> 
                 <h5 class="text-center " style="font-size: 40px"> Bienvenido a la Familia <span th:text="${nombre}"></span></h5>
             <h6 class="text-center pt-4 " style="letter-spacing: 1px"><strong>Introduce los datos del nuevo Miembro</strong></h6>
 
@@ -34,6 +34,8 @@
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Email</label>
                             <input id="email" type="email" class="form-control" th:field="*{Email}" placeholder="example@gmail.com">
+                            <div th:if="${emailExistente}" class="alert alert-danger mt-3 text-left" style=" color: #af1b1b;"role="alert">Este email ya tiene una cuenta</div>
+
                         </div>
                         <div class="col-12 pt-2">
                             <label class="form-label pl-2">Contraseña</label>
