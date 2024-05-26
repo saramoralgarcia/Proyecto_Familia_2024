@@ -1,13 +1,8 @@
 package ProyectoFamilia.Controller;
 
-import ProyectoFamilia.Model.Familia;
-import ProyectoFamilia.Model.Miembro;
-import ProyectoFamilia.Model.Recompensa;
-import ProyectoFamilia.Service.ServiceFamilia;
-import jakarta.servlet.http.HttpServletRequest;
-import jakarta.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -15,7 +10,13 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+
+import ProyectoFamilia.Model.Familia;
+import ProyectoFamilia.Model.Miembro;
+import ProyectoFamilia.Model.Recompensa;
+import ProyectoFamilia.Service.ServiceFamilia;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpSession;
 
 @Controller
 public class RecompensaController {
@@ -47,7 +48,7 @@ public class RecompensaController {
 
         if (familia != null)
         {
-            List<Recompensa> listaRecompensasFamilia = new ArrayList();
+            List<Recompensa> listaRecompensasFamilia = new ArrayList<>();
             List<Miembro> listaMiembros = serviceFamilia.ListarMiembrosPorFamilia(familia.getId());
             for (Miembro miembrosFamilia : listaMiembros) 
             {
@@ -81,10 +82,14 @@ public class RecompensaController {
         //obtener el miembro actual de la familia
         Miembro miembro = (Miembro) session.getAttribute("miembro");
 
-        miembro.setPuntos(miembro.getPuntos() - recompensa.getPuntos());
-        serviceFamilia.guardarMiembro(miembro);
-        serviceFamilia.eliminarRecompensa(id_recompensa);
-        model.addAttribute("miembro", miembro);
+        Miembro miembroRecuperadoDB = serviceFamilia.buscarMiembroPorId(miembro.getId());
+
+        if (miembroRecuperadoDB.getPuntos() >= recompensa.getPuntos()) {
+            miembroRecuperadoDB.setPuntos(miembroRecuperadoDB.getPuntos() - recompensa.getPuntos());
+            serviceFamilia.guardarMiembro(miembroRecuperadoDB);
+            serviceFamilia.eliminarRecompensa(id_recompensa);
+            model.addAttribute("miembro", miembroRecuperadoDB);
+        }
         return "redirect:/gestionRecompensa";
 
     }

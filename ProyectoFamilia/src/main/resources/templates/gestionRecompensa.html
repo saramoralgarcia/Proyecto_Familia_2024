@@ -47,7 +47,7 @@
                                 <img src="modificar.png" alt="modificar recompensa" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;" title="Modificar Recompensa">
                             </a>
                         </td>
-                        <td th:if="${recompensa.Puntos <= puntos}" > 
+                        <td th:if="${recompensa.Puntos le puntos}" > 
                               <a  th:href="@{/canjearRecompensa/{id_recompensa}(id_recompensa=${recompensa.id})}" role="button">
                                   <img src="diana1.png" alt="canjear recompensa" class="img-button p-2 bg bg-secondary fila" style="height: 50px; border-radius: 5px;" title="Canjear Recompensa">
                               </a>
@@ -56,7 +56,6 @@
                 </tbody>
             </table>
         </div>
-        <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.5.1/dist/confetti.browser.min.js"></script>
         
         <script>
             function confirmarEliminacion(event) {
