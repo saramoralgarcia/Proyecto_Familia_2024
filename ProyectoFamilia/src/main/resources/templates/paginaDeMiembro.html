@@ -7,15 +7,12 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
     integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
   <link rel="stylesheet" href="./style.css">
+  <script src="https://kit.fontawesome.com/168ef55c2a.js" crossorigin="anonymous"></script>
+
 </head>
 
 <body>
         <div class="fondo1"></div>
-        <div class="content">
-            <img class="ml-5" style="width: 200px" src="dutys250.png" alt="alt"/>
-            <h1 class="text-center letter flogin-general"> Bienvenido <span th:text="${nombreMiembro}"></span></h1><br><br><br><br>
-        </div>
-        <!-- Incluya la barra de navegación aquí -->
         <div class="container-fluid ">
             <div class="d-flex justify-content-end p-2">
                 <a th:href = "@{/}" >
@@ -23,6 +20,11 @@
                 </a>
             </div>             
         </div>
+        <div class="content">
+            <img class="ml-5" style="width: 200px" src="dutys250.png" alt="alt"/>
+            <h1 class="text-center letter flogin-general"> Bienvenido <span th:text="${nombreMiembro}"></span></h1><br><br><br><br>
+        </div>
+        
         <!-- <div th:replace="./Basic/CabeceraSinNavbar.html"></div><br><br> -->
         
         <div class="">
