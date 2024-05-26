@@ -75,16 +75,27 @@ public class MiembroController
     @PostMapping("/guardarMiembroConUsuario")
     public String guardarMiembroConUsuario(HttpServletRequest request, @ModelAttribute("miembro") Miembro miembro, Model model)
     {
-        Miembro existente = serviceFamilia.buscarMiembroPorEmail(miembro.getEmail());
-
-        if (existente != null) {
-            model.addAttribute("emailExistente", true);
-            return "registroMiembroConUsuario"; 
-        }
-        System.out.println(miembro.toString());
         HttpSession session = request.getSession(); 
         Familia familia = (Familia) session.getAttribute("familia"); //recuperas la session donde se encuentra "familia".
         miembro.setFamilia(familia); // le asignas un miembro
+
+        Miembro existente = serviceFamilia.buscarMiembroPorEmail(miembro.getEmail());
+        if (miembro.getId() != null) {
+            // Es una modificación de miembro
+            if (existente != null&& !existente.getId().equals(miembro.getId())) {
+                model.addAttribute("emailExistente", true);
+                return "modificarMiembro"; 
+            }
+        }else {
+            // Es una creación de nuevo miembro
+            if (existente != null) {
+                // El email ya existe en otro miembro
+                model.addAttribute("emailExistente", true);
+                return "registroMiembroConUsuario";
+            }
+        
+        // System.out.println(miembro.toString());
+        }
         serviceFamilia.guardarMiembro(miembro);
         return "redirect:/gestionMiembro";
     }
